@@ -1,0 +1,54 @@
+<div class='card'>
+  <div class='card-header'>
+    {{pageTitle}}
+  </div>
+  <div class='card-body'>
+    <div class='row'>
+      <div class='col-md-2'>Search by username</div>
+      <div class='col-md-4'>
+        <input matInput type="text" [(ngModel)]="listFilter">>
+      <div class='col-md-6'>
+        <h4>Filtered by: {{listFilter}} </h4>
+        <button color = "primary" mat-raised-button (click)="performFilter()">list Filter</button>      
+      </div>
+    </div>
+<mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  <!-- Position Column -->
+  <ng-container matColumnDef="id">
+    <mat-header-cell *matHeaderCellDef> id </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.id}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="username">
+    <mat-header-cell *matHeaderCellDef> username </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
+  </ng-container>
+
+<!-- Name Column -->
+<ng-container matColumnDef="email">
+  <mat-header-cell *matHeaderCellDef>email </mat-header-cell>
+  <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
+</ng-container>
+
+<!-- Name Column-->
+<ng-container matColumnDef="phone">
+  <mat-header-cell *matHeaderCellDef> phone </mat-header-cell>
+  <mat-cell *matCellDef="let element"> {{element.phone}} </mat-cell>
+</ng-container> 
+
+<!-- Name Column-->
+<ng-container matColumnDef="website">
+  <mat-header-cell *matHeaderCellDef> website </mat-header-cell>
+  <mat-cell *matCellDef="let element"> {{element.website}} </mat-cell>
+</ng-container> 
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
